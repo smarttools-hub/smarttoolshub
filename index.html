@@ -111,7 +111,6 @@ SmartToolsHub
 
 </div>
 
-</div>
 
 <footer>
 SmartToolsHub © 2026 | Free Online Tools
@@ -119,43 +118,53 @@ SmartToolsHub © 2026 | Free Online Tools
 
 <script>
 
-function calculate(){
+<script>
 
-let principal = parseFloat(document.getElementById("principal").value) || 0;
-let monthly = parseFloat(document.getElementById("monthly").value) || 0;
-let rate = parseFloat(document.getElementById("rate").value)/100/12 || 0;
-let years = parseFloat(document.getElementById("years").value)*12 || 0;
+function calculateAge(){
 
-let total = principal;
+let birthdate = document.getElementById("birthdate").value;
 
-for(let i=0;i<years;i++){
-total = total*(1+rate)+monthly;
+if(!birthdate){
+document.getElementById("ageResult").innerHTML =
+"Please select a date";
+return;
 }
 
-document.getElementById("result").innerHTML =
-"Total Value: $" + total.toFixed(2);
+let birth = new Date(birthdate);
+let today = new Date();
+
+let years = today.getFullYear() - birth.getFullYear();
+let months = today.getMonth() - birth.getMonth();
+let days = today.getDate() - birth.getDate();
+
+if(days < 0){
+months--;
+days += 30;
+}
+
+if(months < 0){
+years--;
+months += 12;
+}
+
+document.getElementById("ageResult").innerHTML =
+years + " Years " + months + " Months " + days + " Days";
 
 }
 
 </script>
 
-  function calculateAge(){
 
-let birthdate = new Date(document.getElementById("birthdate").value);
-let today = new Date();
 
-let age = today.getFullYear() - birthdate.getFullYear();
 
-let m = today.getMonth() - birthdate.getMonth();
 
-if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())){
-age--;
-}
 
-document.getElementById("ageResult").innerHTML =
-"Your Age: " + age + " years";
 
-}
 
-</body>
-</html>
+
+
+
+
+
+
+  
