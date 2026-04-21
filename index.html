@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartToolsHub - Compound Interest Calculator</title>
+<title>SmartToolsHub - Free Online Calculators</title>
 
 <style>
 
 body{
 font-family: Arial, sans-serif;
+text-align:center;
 background:#f5f7fb;
 margin:0;
-padding:0;
 }
 
 header{
 background:#2563eb;
 color:white;
 padding:20px;
-text-align:center;
+font-size:24px;
+font-weight:bold;
 }
 
 .container{
-max-width:700px;
-margin:40px auto;
-background:white;
 padding:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+margin:20px auto;
+width:350px;
 border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-h2{
-text-align:center;
-margin-bottom:20px;
-}
-
 input{
-width:100%;
 padding:10px;
-margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
+margin:5px;
+width:80%;
 }
 
 button{
-width:100%;
-padding:12px;
 background:#2563eb;
 color:white;
 border:none;
-border-radius:5px;
-font-size:16px;
+padding:12px;
+margin-top:10px;
 cursor:pointer;
+border-radius:5px;
 }
 
 button:hover{
-background:#1d4ed8;
+background:#1e40af;
 }
 
 .result{
-margin-top:20px;
-font-size:18px;
-text-align:center;
+margin-top:15px;
+font-size:20px;
 font-weight:bold;
 }
 
 footer{
-text-align:center;
-padding:20px;
 margin-top:40px;
-color:#666;
+padding:20px;
+background:#111827;
+color:white;
 }
 
 </style>
@@ -79,25 +76,22 @@ color:#666;
 <body>
 
 <header>
-<h1>SmartToolsHub</h1>
-<p>Simple Tools for Everyday Life</p>
+SmartToolsHub
 </header>
 
 <div class="container">
 
-<h2>Compound Interest Calculator</h2>
+<h2>Free Smart Calculators</h2>
+<p>Simple tools that make life easier</p>
 
-<label>Initial Investment ($)</label>
-<input type="number" id="principal" placeholder="1000">
+<div class="card">
 
-<label>Monthly Contribution ($)</label>
-<input type="number" id="monthly" placeholder="100">
+<h3>Compound Interest Calculator</h3>
 
-<label>Annual Interest Rate (%)</label>
-<input type="number" id="rate" placeholder="5">
-
-<label>Years</label>
-<input type="number" id="years" placeholder="10">
+<input id="principal" placeholder="Initial Amount"><br>
+<input id="monthly" placeholder="Monthly Contribution"><br>
+<input id="rate" placeholder="Interest Rate (%)"><br>
+<input id="years" placeholder="Years"><br>
 
 <button onclick="calculate()">Calculate</button>
 
@@ -105,8 +99,10 @@ color:#666;
 
 </div>
 
+</div>
+
 <footer>
-© 2026 SmartToolsHub
+SmartToolsHub © 2026 | Free Online Tools
 </footer>
 
 <script>
@@ -115,13 +111,13 @@ function calculate(){
 
 let principal = parseFloat(document.getElementById("principal").value) || 0;
 let monthly = parseFloat(document.getElementById("monthly").value) || 0;
-let rate = parseFloat(document.getElementById("rate").value) / 100 / 12 || 0;
-let years = parseFloat(document.getElementById("years").value) * 12 || 0;
+let rate = parseFloat(document.getElementById("rate").value)/100/12 || 0;
+let years = parseFloat(document.getElementById("years").value)*12 || 0;
 
 let total = principal;
 
 for(let i=0;i<years;i++){
-total = total * (1 + rate) + monthly;
+total = total*(1+rate)+monthly;
 }
 
 document.getElementById("result").innerHTML =
@@ -132,5 +128,4 @@ document.getElementById("result").innerHTML =
 </script>
 
 </body>
-
 </html>
