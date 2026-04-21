@@ -97,6 +97,18 @@ SmartToolsHub
 
 <div class="result" id="result"></div>
 
+  <div class="card">
+
+<h3>Age Calculator</h3>
+
+<input type="date" id="birthdate"><br>
+
+<button onclick="calculateAge()">Calculate Age</button>
+
+<div class="result" id="ageResult"></div>
+
+</div>
+
 </div>
 
 </div>
@@ -126,6 +138,24 @@ document.getElementById("result").innerHTML =
 }
 
 </script>
+
+  function calculateAge(){
+
+let birthdate = new Date(document.getElementById("birthdate").value);
+let today = new Date();
+
+let age = today.getFullYear() - birthdate.getFullYear();
+
+let m = today.getMonth() - birthdate.getMonth();
+
+if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())){
+age--;
+}
+
+document.getElementById("ageResult").innerHTML =
+"Your Age: " + age + " years";
+
+}
 
 </body>
 </html>
